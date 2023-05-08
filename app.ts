@@ -1,38 +1,15 @@
-// const person: {
-//     name: string;
-//     age: number;
-//     hobbies: string[];
-//     role: [number, string]
-// } = {
-//     name: "Agne",
-//     age: 33,
-//     hobbies: ["Dancing", "Making myself laugh"],
-//     role: [2, 'author'] // tuple - restricted number and types of array values
-// };
-
-// person.role.push('admin'); PUSH STILL WORKS!!!!!!!
-// person.role[1] = 10; ERROR (as supposed to)
-// person.role = [0, 'admin', 'user']; ERROR (as supposed to)
-
-enum Role { ADMIN, READ_ONLY, AUTHOR };
-
-const person = {
-    name: "Agne",
-    age: 33,
-    hobbies: ["Dancing", "Making myself laugh"],
-    role: Role.ADMIN
+function combine (input1: number | string, input2: number | string) {
+    let result;
+    if (typeof input1 === 'number' && typeof input2 === 'number') {
+        result = input1 + input2;
+    } else {
+        result = input1.toString() + ' ' + input2.toString();
+    }
+    return result;
 }
 
-let favoriteActivities: string[];
-favoriteActivities = ['Sports'];
+const combinedAges = combine(30, 26);
+console.log(combinedAges);
 
-console.log(person.name)
-
-for (const hobby of person.hobbies) {
-    console.log(hobby.toUpperCase());
-    // console.log(hobby.map()); ERROR!!!
-}
-
-if (person.role === Role.ADMIN) {
-    console.log('is admin')
-}
+const combinesNames = combine('Max', 'Anna');
+console.log(combinesNames);
